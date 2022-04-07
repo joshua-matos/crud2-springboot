@@ -1,7 +1,10 @@
 package com.joshuamatos.Crud2.books;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
+
 @Entity
 @Table
 public class Book {
@@ -9,7 +12,8 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
-    LocalDateTime publishDate;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
+    private LocalDateTime publishDate;
 
     public Book(long id, String name, LocalDateTime publishDate) {
         this.id = id;

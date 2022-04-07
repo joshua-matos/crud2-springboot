@@ -1,5 +1,7 @@
 package com.joshuamatos.Crud2.employees;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
@@ -10,8 +12,9 @@ public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    String name;
-    LocalDateTime startDate;
+    private String name;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
+    private LocalDateTime startDate;
 
     public Employee(long id, String name, LocalDateTime startDate) {
         this.id = id;
